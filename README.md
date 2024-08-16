@@ -7,13 +7,10 @@
 ## Objectives
 <ul>
   <li>
-    Develop a content-based recommendation algorithm to suggest books similar to those a user has shown interest in.
+    Develop a content-based recommendation algorithm to suggest product name similar to those a user has shown interest in.
   </li>
   <li>
-    Implement text processing and feature extraction techniques to represent book content.
-  </li>
-  <li>
-    Evaluate the algorithm's performance using similarity metrics.
+    Implement text processing and feature extraction techniques to represent product content.
   </li>
 </ul>
 
@@ -24,10 +21,37 @@ The dataset I used is from an open dataset on BigQuery. Here is the link where y
 1. Data Preprocessing
    <ul>
      <li>
-       **Data Cleaning**: Checking duplicate and handling missing data
-       **Delete Data**: Deleting data that not corralated with the objectivity
+       Data Cleaning: Checking duplicate and handling missing data
+     </li>
+     <li>
+       Delete Data: Deleting data that not corralated with the objectivity
      </li>
    </ul>
-3. Feature Engineering
-4. Similarity Calculation
-5. Recommendation Algorithm
+2. Feature Engineering
+   <ul>
+     <li>
+       One-Hot Encoder: convert categorical data into numerical data
+     </li>
+     <li>
+       TF-IDF Vectorization: Transform product name into TF-IDF vectors to capture the importance of terms relative to the product name.
+     </li>
+   </ul>
+3. Similarity Calculation
+   <ul>
+     <li>
+       Cosine Similarity: Compute the cosine similarity between the feature vectors of product to measure content similarity.
+     </li>
+   </ul>
+4. Recommendation Algorithm
+   <ul>
+     <li>
+       Title Matching: Compare product name using FuzzyWuzzy to find product with similar names.
+     </li>
+     <li>
+       Score Aggregation: Combine similarity scores from product name, category, brand, and department to generate an overall similarity score for each product.
+     </li>
+     <li>
+       Ranking: Rank the recommended product based on their aggregated similarity scores.
+     </li>
+   </ul>
+   
